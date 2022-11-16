@@ -1,13 +1,12 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.13;
-//pragma solidity ^0.8.4; antes era 0.8.4, lo baje para que fuera compatible con las nuevas funciones, pero no se si eso afecta al resto de las funciones.
 import "erc721a/contracts/ERC721A.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "openzeppelin/contracts/token/ERC721/ERC721.sol";
-import {DefaultOperatorFilterer} from "../DefaultOperatorFilterer.sol";
-import {Ownable} from "openzeppelin-contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "https://github.com/ProjectOpenSea/operator-filter-registry/blob/main/src/DefaultOperatorFilterer.sol";
+
 
 
 contract Nombre is ERC721A, DefaultOperatorFilterer, Ownable { //le agregue DefaultOperatorFilterer antes de Ownable
