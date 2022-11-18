@@ -78,12 +78,7 @@ contract Nombre is ERC721A, DefaultOperatorFilterer, Ownable { //le agregue Defa
 
     }
 
-    function tokenURI(uint256 tokenId)
-    public
-    view
-    virtual
-    override
-    returns (string memory)
+    function tokenURI(uint256 tokenId) public view virtual override returns (string memory)
   {
     require(
       _exists(tokenId),
@@ -122,23 +117,18 @@ contract Nombre is ERC721A, DefaultOperatorFilterer, Ownable { //le agregue Defa
   
   //desde aqui las nuevas funciones
   
-  function transferFrom(address from, address to, uint256 tokenId) public override onlyAllowedOperator(from) {
+  function transferFrom(address from, address to, uint256 tokenId) public payable override onlyAllowedOperator(from) {
         super.transferFrom(from, to, tokenId);
     }
 
-    function safeTransferFrom(address from, address to, uint256 tokenId) public override onlyAllowedOperator(from) {
+    function safeTransferFrom(address from, address to, uint256 tokenId) public payable override onlyAllowedOperator(from) {
         super.safeTransferFrom(from, to, tokenId);
     }
 
-    function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory data)
-        public
-        override
+    function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory data) public payable
+ override
         onlyAllowedOperator(from)
     {
         super.safeTransferFrom(from, to, tokenId, data);
-    }
-
-    function tokenURI(uint256) public pure override returns (string memory) {
-        return "";
     }
 }
